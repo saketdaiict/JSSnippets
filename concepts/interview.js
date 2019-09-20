@@ -249,7 +249,34 @@ r1.printArea();
  */
 
 
+console.log('Q8 add(1,2,3)(10) === add(1)(2)(3)(10) === add(1)(2,3)(10)') 
 
+/*
+function add(...args1) {
+ 
+  var sumOperation = function(args) {
+      return args.reduce(function(acc,val){return acc + Number(val) }, 0);
+  };
+
+  var sum = sumOperation(args1);
+  
+  const proxy = new Proxy(sumOperation, {
+    get () {
+      return () => sum;
+    },
+    apply (receiver, thisArg ,...args2) {
+      sum += receiver(args2.flat());
+      return proxy;
+    },
+  });
+  return proxy
+}
+
+console.log(add(1)(2)(3)(10));  // 16  
+console.log(add(1)(2,3)(10));   // 16   
+console.log(add(1,2,3)(10));    // 16   
+ 
+*/
 
 /*=================TODOs==================
 
@@ -257,3 +284,5 @@ r1.printArea();
 
 
 =================TODOs==================*/
+
+
